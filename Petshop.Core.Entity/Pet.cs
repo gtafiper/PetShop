@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Petshop.Core.Entity
 {
@@ -17,9 +18,10 @@ namespace Petshop.Core.Entity
             Snake,
             Sausage,
             Rock
-        } 
+        }
 
-    public DateTime Birthdate { get; set; }
+        public  string Species { get; set;}
+        public DateTime Birthdate { get; set; }
 
     public DateTime SoldDate { get; set; }
 
@@ -29,18 +31,21 @@ namespace Petshop.Core.Entity
 
         public double Price { get; set; }
 
-        public Type _type; 
+        
 
-    private Pet(int Id, string name, Type type, DateTime birthdate, string color, double price)
+       /// public Type _type; 
+
+    public Pet(int Id, string name, string species , DateTime birthdate, string color, double price)
         {
-            this._type = type;
+            
             this.ID = Id;
             this.Name = name;
             this.Color = color;
             this.Birthdate = birthdate;
             this.Price = price;
+            this.Species = species;
         }
 
-          
+       
     }
 }

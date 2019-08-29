@@ -5,7 +5,7 @@ using Petshop.Core.Entity;
 
 namespace Core.ApplicationService
 {
-    interface IPetService
+   public interface IPetService
 
     {
         Pet NewPet
@@ -18,16 +18,21 @@ namespace Core.ApplicationService
             double price
 
         );
-        Pet CreatePet(Pet pet);
+        void CreatePet();
 
         Pet FindPetById(int Id);
 
         List<Pet> GetAllPets();
 
-        Pet UpdatePet(Pet updatedPet);
+        Pet UpdatePet(int id, string name, string color, DateTime birthdate, double price, string species,
+            string previousOwner, DateTime soltDate);
 
-        void DeltedPed(int Id);
+        void DeltedPet(int Id);
 
-        List<Pet> GetPetsByEnum(Pet pet, List<Pet> petsByEnumList);
+        List<Pet> GetPetsBySpecis(string specise);
+
+        List<MenuItem> getAllMenuItems();
+
+        
     }
 }

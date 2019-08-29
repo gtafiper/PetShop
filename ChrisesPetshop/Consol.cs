@@ -1,4 +1,8 @@
 ﻿using System;
+using Core.ApplicationService;
+using Core.DomainService;
+using Microsoft.Extensions.DependencyInjection;
+using Petshop.Consol;
 using Petshop.Core.Entity;
 
 namespace ChrisesPetshop
@@ -7,8 +11,17 @@ namespace ChrisesPetshop
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Petshop!");
+            
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddScoped<IPetRepository, PetRepository>();
+            serviceCollection.AddScoped<IPetService, PetServices>();
+            serviceCollection.AddScoped<IPrinter, Printer>();
 
+            ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+            var printer = serviceProvider.GetRequiredService<IPrinter>();
+
+            printer.ShowMenuItems();
+            //printer.GetTheMenuItem(printer.AskForNumericInputMenu(printer.ShowMenuItems()));
         }
     }
 }

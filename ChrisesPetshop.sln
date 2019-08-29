@@ -11,15 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InfraStructure.Data", "Infr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{2591BE73-1E27-4DF8-9F55-6D5F3FD21A25}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Core", "Petshop.Core\Petshop.Core.csproj", "{23825E6C-9267-4664-9D99-8902FA7DB5B3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Core.Entity", "Petshop.Core.Entity\Petshop.Core.Entity.csproj", "{29C88628-D3C2-4A38-B41C-4667D93C9DDB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.InfraStructure.Data", "Petshop.InfraStructure.Data\Petshop.InfraStructure.Data.csproj", "{E00CF5D1-4A1E-4389-956D-470BFD165D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DomainService", "Core.DomainService\Core.DomainService.csproj", "{C9CA9B95-7529-4A33-9C49-2EC1514649A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.DomainService", "Core.DomainService\Core.DomainService.csproj", "{C9CA9B95-7529-4A33-9C49-2EC1514649A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ApplicationService", "Core.ApplicationService\Core.ApplicationService.csproj", "{18FF745D-8BB2-4F78-9071-21C62D5662E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.ApplicationService", "Core.ApplicationService\Core.ApplicationService.csproj", "{18FF745D-8BB2-4F78-9071-21C62D5662E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationService", "ApplicationService", "{1412AFCD-4176-4759-91FC-E196B87EA7C8}"
 EndProject
@@ -37,10 +35,6 @@ Global
 		{C88BE3CC-22CE-416D-A9D7-F8FB7827B897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C88BE3CC-22CE-416D-A9D7-F8FB7827B897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C88BE3CC-22CE-416D-A9D7-F8FB7827B897}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23825E6C-9267-4664-9D99-8902FA7DB5B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23825E6C-9267-4664-9D99-8902FA7DB5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23825E6C-9267-4664-9D99-8902FA7DB5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23825E6C-9267-4664-9D99-8902FA7DB5B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29C88628-D3C2-4A38-B41C-4667D93C9DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29C88628-D3C2-4A38-B41C-4667D93C9DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C88628-D3C2-4A38-B41C-4667D93C9DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,7 +57,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C88BE3CC-22CE-416D-A9D7-F8FB7827B897} = {2591BE73-1E27-4DF8-9F55-6D5F3FD21A25}
-		{23825E6C-9267-4664-9D99-8902FA7DB5B3} = {E1BCD8CD-063D-4729-B3B6-CD97E791F568}
 		{29C88628-D3C2-4A38-B41C-4667D93C9DDB} = {1A5DE310-6B7B-414C-AFD4-FCD0D04094A1}
 		{E00CF5D1-4A1E-4389-956D-470BFD165D1D} = {3B8B2851-87E7-4D92-B977-9AB74B391E87}
 		{C9CA9B95-7529-4A33-9C49-2EC1514649A6} = {DB86FF56-2970-4B60-BDE4-4A3F01479F64}

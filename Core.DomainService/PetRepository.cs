@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Petshop.Core.Entity;
 
 namespace Core.DomainService
 {
-    class PetRepository: IPetRepository
+    public class PetRepository: IPetRepository
 
-    {  List<Pet> listOfPets = new List<Pet>()
-        {new Pet(1, "Lola", Pet.Type.Dog, new DateTime(2002, 9, 20), "Black", 1999.99 ),
-         new Pet(2, "Boris", Pet.Type.Cat, new DateTime(2017, 10, 02), "Black", 99999999999.99),
-         new Pet(3, "Arne", Pet.Type.Rock, new DateTime(01, 1, 1), "Gray", 10.50),
-         new Pet(4, "Blob", Pet.Type.Fish, new DateTime(2019, 8, 27), "Gold", 1.99 )
+    {
+       
+
+
+        public IEnumerable<Pet> listOfPets = new List<Pet>()
+        {new Pet(1, "Lola", "dog", new DateTime(2002, 9, 20), "Black", 1999.99 ),
+         new Pet(2, "Boris","cat", new DateTime(2017, 10, 02), "Black", 99999999999.99),
+         new Pet(3, "Arne", "Rock", new DateTime(01, 1, 1), "Gray", 10.50),
+         new Pet(4, "Blob", "Fish", new DateTime(2019, 8, 27), "Gold", 1.99 )
         };
+
 
         public Pet CreatePet(Pet pet)
         {
@@ -33,7 +39,7 @@ namespace Core.DomainService
             return null;
         }
 
-        public List<Pet> GetAllPets()
+        public IEnumerable<Pet> GetAllPets()
         {
             return listOfPets;
         }
@@ -68,7 +74,7 @@ namespace Core.DomainService
             {
                 if (pet.ID == Id)
                 {
-                    listOfPets.Remove(pet);
+                    listOfPets.ToList().Remove(pet);
 
                 }
             }
