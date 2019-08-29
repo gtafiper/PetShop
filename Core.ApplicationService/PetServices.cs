@@ -18,20 +18,31 @@ namespace Core.ApplicationService
             _menuitemsReposetory = menuitemsReposetory;
         }
 
-        public Pet NewPet(int Id, string name, Pet.Type type, DateTime birthdate, string color, double price)
+        public Pet NewPet(string name, DateTime birthdate, string color, double price, string prOvner, string species )
         {
-            throw new NotImplementedException();
+            var pet = new Pet()
+            {
+                Name = name,
+                Color = color,
+                Price = price,
+                Birthdate = birthdate,
+                PreviousOwner = prOvner,
+                Species = species
+            };
+            return pet;
         }
 
-        public void CreatePet(Pet pet)
+       
+
+        public Pet CreatePet(Pet pet)
         {
-           
 
-            _petRepo.GetAllPets().ToList().Add(pet);
 
-            
+            return _petRepo.CreatePet(pet);
+
+
         }
-
+        
         public Pet FindPetById(int Id)
         {
             return _petRepo.FindPetById(Id);
@@ -46,37 +57,54 @@ namespace Core.ApplicationService
             return list.ToList();
         }
 
-        public Pet UpdatePet(int id, string name, string color, DateTime birthdate, double price, string species, string previousOwner, DateTime soltDate)
+        public Pet UpdatePet(Pet petToUpdate)
         {
-            var pet = FindPetById(id);
-            pet.Name = name;
-            pet.Color = color;
-            pet.Birthdate = birthdate;
-            pet.Price = price;
-            pet.Species = species;
-            pet.PreviousOwner = previousOwner;
-            pet.SoldDate = soltDate;
+            var pet = FindPetById(petToUpdate.ID);
+            pet.Name = petToUpdate.Name;
+            pet.Price = petToUpdate.Price;
+            pet.Birthdate = petToUpdate.Birthdate;
+            pet.Color = petToUpdate.Color;
+            pet.PreviousOwner = petToUpdate.PreviousOwner;
+            pet.SoldDate = pet.SoldDate;
+            pet.Species = petToUpdate.Species;
+
             return pet;
+
         }
 
         public void DeltedPet(int Id)
         {
-            _petRepo.DeltedPed(Id);
+            _petRepo.DeletePet(Id);
         }
 
         
-        public List<Pet> GetPetsBySpecis(string specise)
+        public List<Pet> GetPetsBySpecies(string species)
         {
+            string strToLower = species.ToLower();
             var list = _petRepo.GetAllPets();
+            var queryContinued = list.Where(pet => pet.Species.ToLower().Equals(strToLower));
+            queryContinued.OrderBy(pet => pet.Name);
+            //Not executed anything yet
+            return queryContinued.ToList();
 
-            var query = list.Where(pet => pet.Species.Equals(specise));
-            query.OrderBy(pet => pet.Name);
-            return query.ToList();
         }
+
+        public List<Pet> GetPetsByPrice()
+        {
+            return _petRepo.GetAllPets().OrderBy(pet => pet.Price).ToList();
+        }
+
+        public List<Pet> GetFiveCheapest()
+        {
+            return GetPetsByPrice().Take(5).ToList();
+        }
+
 
         public List<MenuItem> getAllMenuItems()
         {
             return _menuitemsReposetory.GetAllMenuItems();
         }
+
+        
     }
 }

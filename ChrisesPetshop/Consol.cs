@@ -4,6 +4,7 @@ using Core.DomainService;
 using Microsoft.Extensions.DependencyInjection;
 using Petshop.Consol;
 using Petshop.Core.Entity;
+using Petshop.InfraStructure.Data;
 
 namespace ChrisesPetshop
 {

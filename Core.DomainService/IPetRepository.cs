@@ -11,11 +11,13 @@ namespace Core.DomainService
 
         Pet FindPetById(int Id);
 
-        IEnumerable<Pet> GetAllPets();
+        List<Pet> GetAllPets();
+
+        
 
         Pet UpdatePet(Pet UpDatedPet);
 
-        void DeltedPed(int Id);
+        Pet DeletePet(int id);
     }
 
     

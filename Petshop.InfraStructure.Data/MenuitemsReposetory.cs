@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Core.DomainService;
 using Petshop.Core.Entity;
 
-namespace Core.DomainService
+namespace Petshop.InfraStructure.Data
 {
     public class MenuitemsReposetory : IMenuitemsReposetory
     {
@@ -13,7 +12,10 @@ namespace Core.DomainService
             new MenuItem("Add new pet"),
             new MenuItem("Delete pet"),
             new MenuItem("Edit pet"),
-            new MenuItem("get pet by species")
+            new MenuItem("Search Pets by Type"),
+            new MenuItem("Get pets soretd by price"),
+            new MenuItem("Get top five cheapest pets"),
+            new MenuItem("Exit program")
 
         };
 
