@@ -5,7 +5,7 @@ namespace Petshop.Core.Entity
 {
     public class Pet
     {
-        public int ID { get;}
+        public int ID { get; set; }
 
         public String Name { get; set; }
 

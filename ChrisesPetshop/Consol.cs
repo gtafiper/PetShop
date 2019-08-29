@@ -16,12 +16,13 @@ namespace ChrisesPetshop
             serviceCollection.AddScoped<IPetRepository, PetRepository>();
             serviceCollection.AddScoped<IPetService, PetServices>();
             serviceCollection.AddScoped<IPrinter, Printer>();
+            serviceCollection.AddScoped<IMenuitemsReposetory, MenuitemsReposetory>();
 
-            ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+            var serviceProvider = serviceCollection.BuildServiceProvider();
             var printer = serviceProvider.GetRequiredService<IPrinter>();
 
             printer.ShowMenuItems();
-            //printer.GetTheMenuItem(printer.AskForNumericInputMenu(printer.ShowMenuItems()));
+            printer.GetTheMenuItem(printer.AskForNumericInputMenu(printer.ShowMenuItems()));
         }
     }
 }

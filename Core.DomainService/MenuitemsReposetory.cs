@@ -5,7 +5,7 @@ using Petshop.Core.Entity;
 
 namespace Core.DomainService
 {
-    public class MenuitemsReposetory
+    public class MenuitemsReposetory : IMenuitemsReposetory
     {
         public List<MenuItem> menuItemses = new List<MenuItem>()
         {

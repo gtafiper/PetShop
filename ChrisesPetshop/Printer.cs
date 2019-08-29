@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks.Dataflow;
 using Core.ApplicationService;
 using Core.DomainService;
 using Petshop.Core.Entity;
@@ -92,6 +93,36 @@ namespace Petshop.Consol
 
             }
 
+            public Pet AddNewPet()
+            {
+            Console.WriteLine("Type the name of the new pet");
+            string name = Console.ReadLine();
+            Console.WriteLine("Type the price of " + name);
+            double price = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            Console.WriteLine("Write the color of " + name);
+            string color = Console.ReadLine();
+            Console.WriteLine("Type the species");
+            string species = Console.ReadLine();
+            Console.WriteLine("Write the day of birth for " + name);
+            int day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Write the day of month for " + name);
+            int month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Write the day of year for " + name);
+            int year = int.Parse(Console.ReadLine());
+            DateTime date = new DateTime(year, month, day);
+            Console.WriteLine("Type the name of " + name + "'s previos ovner");
+            string preOvner = Console.ReadLine();
+
+
+
+
+            //Pet pet = new Pet(id, inpString, inpString , date, inpString, price);
+            Pet pet = new Pet
+            {
+
+            };
+        }
+
         public void GetTheMenuItem(int inputNumber)
         {
             //inputNumber = Convert.ToInt32(Console.ReadLine());
@@ -116,13 +147,17 @@ namespace Petshop.Consol
                         
                     }
 
+                    AddExsit(menuItems);
+
                     break;
 
 
 
                 case 2:
-                    {
-                        _petService.CreatePet();
+                {
+                   
+
+                        
                         AddExsit(menuItems);
                         break;
                     }

@@ -10,9 +10,9 @@ namespace Core.ApplicationService
     public class PetServices: IPetService
     {
         readonly IPetRepository _petRepo;
-        private readonly MenuitemsReposetory _menuitemsReposetory;
+        private readonly IMenuitemsReposetory _menuitemsReposetory;
 
-        public PetServices(IPetRepository petRepository, MenuitemsReposetory menuitemsReposetory)
+        public PetServices(IPetRepository petRepository, IMenuitemsReposetory menuitemsReposetory)
         {
             _petRepo = petRepository;
             _menuitemsReposetory = menuitemsReposetory;
@@ -23,24 +23,9 @@ namespace Core.ApplicationService
             throw new NotImplementedException();
         }
 
-        public void CreatePet()
+        public void CreatePet(Pet pet)
         {
-            string inpString;
-            int id = _petRepo.GetAllPets().ToList().Count;
-            Console.WriteLine("Type the name of the new pet");
-            inpString = Console.ReadLine();
-            Console.WriteLine("Type the price of " + inpString);
-            double price = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-            Console.WriteLine("Write the color of " + inpString);
-            inpString = Console.ReadLine();
-            Console.WriteLine("Type the species");
-            inpString = Console.ReadLine();
-            
-            
-            
-            DateTime date = new DateTime();
-
-            Pet pet = new Pet(id, inpString, inpString , date, inpString, price);
+           
 
             _petRepo.GetAllPets().ToList().Add(pet);
 
