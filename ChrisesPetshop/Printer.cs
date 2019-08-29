@@ -184,20 +184,20 @@ namespace Petshop.Consol
                     string color = Console.ReadLine();
                     Console.WriteLine("Type the species");
                     string species = Console.ReadLine();
-                    Console.WriteLine("Write the day of birth for " + name+"s");
+                    Console.WriteLine("Write the day of birth for " + name + "s");
                     int day = AskForNumericInputPets();
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Write the day of month for " + name+"s");
+                    Console.WriteLine("Write the day of month for " + name + "s");
                     int month = AskForNumericInputPets();
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Write the day of year for " + name+"s");
+                    Console.WriteLine("Write the day of year for " + name + "s");
                     int year = AskForNumericInputPets();
                     Console.ForegroundColor = ConsoleColor.Blue;
                     DateTime date = new DateTime(year, month, day);
                     Console.WriteLine("Has " + name + "had a privios ovner? Type hasHadPrOvner ore no");
                     HasHadPrOvner();
                     Console.WriteLine(name + " was addet");
-                    
+
 
                         var pet = _petService.NewPet(name, date, color, price, HasHadPrOvner(), species);
                     _petService.CreatePet(pet);
