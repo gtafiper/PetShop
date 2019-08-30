@@ -157,7 +157,7 @@ namespace Petshop.Consol
                     foreach (var pet in _petService.GetAllPets())
                     {
 
-                        Console.WriteLine("id " + ":" + pet.ID + ": Name " + pet.Name + ": species " + pet.Species);
+                        Console.WriteLine("id"+":" + pet.ID + " Name :" + pet.Name + " species: " + pet.Species);
                         MenuItem item = new MenuItem(pet.Name);
                         menuItems.Add(item);
 

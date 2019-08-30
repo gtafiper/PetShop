@@ -35,22 +35,22 @@ namespace Petshop.InfraStructure.Data
            },
             new Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
+            Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
             Color = "blue", Price = 999.0,
             },
             new Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
+            Birthdate = new DateTime(2002, 9, 20), ID = 4, Name = "per", Species = "Dog",
             Color = "blue", Price = 80.0,
              },
             new Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
+            Birthdate = new DateTime(2002, 9, 20), ID = 5, Name = "per", Species = "Dog",
             Color = "blue", Price = 40.20,
              },
             new Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
+            Birthdate = new DateTime(2002, 9, 20), ID = 6, Name = "per", Species = "Dog",
             Color = "blue", Price = 0.2,
             },
         };
@@ -111,7 +111,7 @@ namespace Petshop.InfraStructure.Data
             var petToFind = this.FindPetById(id);
             if (petToFind != null)
             {
-                ListOfPets.ToList().Remove(petToFind);
+                ListOfPets.Remove(petToFind);
                 return petToFind;
             }
             return null;
