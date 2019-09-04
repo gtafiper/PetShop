@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Petshop.Core.Entity
+﻿namespace Petshop.Core.Entity2
 {
         public class MenuItem
     {

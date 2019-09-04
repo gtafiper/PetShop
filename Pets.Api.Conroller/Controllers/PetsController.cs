@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.ApplicationService;
+using ApplicationService2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 
 namespace Pets.Api.Conroller.Controllers
 {
@@ -13,16 +13,16 @@ namespace Pets.Api.Conroller.Controllers
     [ApiController]
     public class PetsController : ControllerBase
     {
-        private readonly IPetService _petervice;
+        private IPetService _petePetService;
         public PetsController(IPetService petService)
         {
-            _petervice = petService;
+            _petePetService = petService;
         }
 
         [HttpGet]
-        public ActionResult<List<Pet>> Get()
+        public ActionResult<IEnumerable<Pet>> Get()
         {
-            return _petervice.GetAllPets();
+            return _petePetService.GetAllPets();
         }
 
 

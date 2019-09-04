@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.ApplicationService\Core.ApplicationService.csproj" />
-    <ProjectReference Include="..\Petshop.Core.Entity\Petshop.Core.Entity.csproj" />
+    <ProjectReference Include="..\Core.DomainService2\Core.DomainService2.csproj" />
+    <ProjectReference Include="..\Petshop.InfraStructure.Data\Petshop.InfraStructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

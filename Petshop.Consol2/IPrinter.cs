@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Petshop.Core.Entity;
+﻿using System.Collections.Generic;
+using Petshop.Core.Entity2;
 
-namespace Petshop.Consol
+namespace Petshop.Consol2
 {
     public interface IPrinter
     {

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks.Dataflow;
-using Core.ApplicationService;
-using Core.DomainService;
-using Petshop.Core.Entity;
+using ApplicationService2;
+using Petshop.Core.Entity2;
 
-namespace Petshop.Consol
+namespace Petshop.Consol2
 {
     public class Printer : IPrinter
     {

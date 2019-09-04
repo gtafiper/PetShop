@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 
-namespace Core.ApplicationService
+namespace ApplicationService2
 {
    public interface IPetService
 
@@ -27,7 +26,7 @@ namespace Core.ApplicationService
 
         List<Pet> GetPetsBySpecies(string specise);
 
-        List<MenuItem> getAllMenuItems();
+        
 
         List<Pet> GetPetsByPrice();
 

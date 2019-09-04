@@ -1,12 +1,9 @@
-﻿using System;
-using Core.ApplicationService;
-using Core.DomainService;
+﻿using ApplicationService2;
+using Core.DomainService2;
 using Microsoft.Extensions.DependencyInjection;
-using Petshop.Consol;
-using Petshop.Core.Entity;
-using Petshop.InfraStructure.Data;
+using Petshop.InfraStructure.Data2;
 
-namespace ChrisesPetshop
+namespace Petshop.Consol2
 {
     class Program
     {
@@ -14,10 +11,11 @@ namespace ChrisesPetshop
         {
             
             var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<IPetRepository, PetRepository>();
+            
             serviceCollection.AddScoped<IPetService, PetServices>();
             serviceCollection.AddScoped<IPrinter, Printer>();
             serviceCollection.AddScoped<IMenuitemsReposetory, MenuitemsReposetory>();
+            serviceCollection.AddScoped<IPetRepository, PetRepository>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
             var printer = serviceProvider.GetRequiredService<IPrinter>();

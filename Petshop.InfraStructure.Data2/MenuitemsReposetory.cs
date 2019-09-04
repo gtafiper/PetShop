@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Core.DomainService;
-using Petshop.Core.Entity;
+using Core.DomainService2;
+using Petshop.Core.Entity2;
 
-namespace Petshop.InfraStructure.Data
+namespace Petshop.InfraStructure.Data2
 {
     public class MenuitemsReposetory : IMenuitemsReposetory
     {

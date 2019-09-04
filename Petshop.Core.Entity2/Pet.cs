@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Threading;
 
-namespace Petshop.Core.Entity
+namespace Petshop.Core.Entity2
 {
     public class Pet
     {

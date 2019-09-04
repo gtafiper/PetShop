@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.DomainService;
-using Petshop.Core.Entity;
+using Core.DomainService2;
+using Petshop.Core.Entity2;
 
-namespace Petshop.InfraStructure.Data
+namespace Petshop.InfraStructure.Data2
 {
     public class PetRepository : IPetRepository
 
@@ -23,39 +23,41 @@ namespace Petshop.InfraStructure.Data
 
         public static List<Pet> ListOfPets = new List<Pet>()
         {
-            new Pet()
+            new Core.Entity2.Pet()
+
             {
-               Birthdate = new DateTime(2002, 9, 20), ID = 1, Name = "bob", Species = "Rock",
+                Birthdate = new DateTime(2002, 9, 20), ID = 1, Name = "bob", Species = "Rock",
                 Color = "blue", Price = 20,
-           },
-            new Pet()
-           {
-               Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
-               Color = "blue", Price = 99.99,
-           },
-            new Pet()
-            {
-            Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
-            Color = "blue", Price = 999.0,
             },
-            new Pet()
+            new Core.Entity2.Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 4, Name = "per", Species = "Dog",
-            Color = "blue", Price = 80.0,
-             },
-            new Pet()
+                Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
+                Color = "blue", Price = 99.99,
+            },
+
+            new Core.Entity2.Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 5, Name = "per", Species = "Dog",
-            Color = "blue", Price = 40.20,
-             },
-            new Pet()
+                Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
+                Color = "blue", Price = 999.0,
+            },
+            new Core.Entity2.Pet()
             {
-            Birthdate = new DateTime(2002, 9, 20), ID = 6, Name = "per", Species = "Dog",
-            Color = "blue", Price = 0.2,
+                Birthdate = new DateTime(2002, 9, 20), ID = 4, Name = "per", Species = "Dog",
+                Color = "blue", Price = 80.0,
+            },
+            new Core.Entity2.Pet()
+            {
+                Birthdate = new DateTime(2002, 9, 20), ID = 5, Name = "per", Species = "Dog",
+                Color = "blue", Price = 40.20,
+            },
+            new Core.Entity2.Pet()
+            {
+                Birthdate = new DateTime(2002, 9, 20), ID = 6, Name = "per", Species = "Dog",
+                Color = "blue", Price = 0.2,
             },
         };
 
-    
+
         //};
         private int Id = ListOfPets.Count();
 
@@ -69,22 +71,25 @@ namespace Petshop.InfraStructure.Data
 
         public Pet FindPetById(int Id)
         {
-            foreach (Pet animal in ListOfPets)
             {
-                if (animal.ID == Id)
+                foreach (Pet animal in ListOfPets)
                 {
-                    return animal;
-                }
-               
-            }
+                    if (animal.ID == Id)
+                    {
+                        return animal;
+                    }
 
-            return null;
+                }
+
+                return null;
+            }
         }
 
         public List<Pet> GetAllPets()
         {
             return ListOfPets;
         }
+
 
         public Pet UpdatePet(Pet upDatedPet)
         {
@@ -114,8 +119,13 @@ namespace Petshop.InfraStructure.Data
                 ListOfPets.Remove(petToFind);
                 return petToFind;
             }
+
             return null;
         }
+
+
+
+
 
 
     }

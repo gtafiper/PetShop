@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Core.DomainService;
-using Petshop.Core.Entity;
+using Core.DomainService2;
+using Petshop.Core.Entity2;
 
-namespace Core.ApplicationService
+namespace ApplicationService2
 {
     public class PetServices: IPetService
     {
         readonly IPetRepository _petRepo;
-        private readonly IMenuitemsReposetory _menuitemsReposetory;
+        
 
-        public PetServices(IPetRepository petRepository, IMenuitemsReposetory menuitemsReposetory)
+        public PetServices(IPetRepository petRepository)
         {
             _petRepo = petRepository;
-            _menuitemsReposetory = menuitemsReposetory;
+            
         }
 
         public Pet NewPet(string name, DateTime birthdate, string color, double price, string prOvner, string species )
@@ -99,11 +98,6 @@ namespace Core.ApplicationService
             return GetPetsByPrice().Take(5).ToList();
         }
 
-
-        public List<MenuItem> getAllMenuItems()
-        {
-            return _menuitemsReposetory.GetAllMenuItems();
-        }
 
         
     }
