@@ -30,6 +30,7 @@ namespace Pets.Api.Conroller
         {
             services.AddScoped<IPetService, PetServices>();
             services.AddScoped<IPetRepository, PetRepository>();
+            services.AddScoped<iOwnerReposetory, OwnerReposetory>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

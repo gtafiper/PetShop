@@ -17,6 +17,8 @@ namespace ApplicationService2
             
         }
 
+        
+
         public Pet NewPet(string name, DateTime birthdate, string color, double price, string prOvner, string species )
         {
             var pet = new Pet()
@@ -25,7 +27,7 @@ namespace ApplicationService2
                 Color = color,
                 Price = price,
                 Birthdate = birthdate,
-                PreviousOwner = prOvner,
+                PreviousOwner = new Owner(),
                 Species = species
             };
             return pet;

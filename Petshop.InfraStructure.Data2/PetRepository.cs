@@ -7,8 +7,10 @@ using Petshop.Core.Entity2;
 namespace Petshop.InfraStructure.Data2
 {
     public class PetRepository : IPetRepository
+    
 
     {
+        public static OwnerReposetory ownerReposetory = new OwnerReposetory();
 
         //public static IEnumerable<Pet> InuEnumerablOfPets = new List<Pet>(){new Pet()
         //    {
@@ -23,34 +25,34 @@ namespace Petshop.InfraStructure.Data2
 
         public static List<Pet> ListOfPets = new List<Pet>()
         {
-            new Core.Entity2.Pet()
+            new Pet()
 
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 1, Name = "bob", Species = "Rock",
-                Color = "blue", Price = 20,
+                Color = "blue", Price = 20, PreviousOwner = ownerReposetory.GetOwnerById(3)
             },
-            new Core.Entity2.Pet()
+            new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
-                Color = "blue", Price = 99.99,
+                Color = "blue", Price = 99.99, PreviousOwner = ownerReposetory.CreatOwner(new Owner(){Firstname = "Lars", Adress = "NederenVej 42 42th", Lastname = "Øv"})
             },
 
-            new Core.Entity2.Pet()
+            new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
-                Color = "blue", Price = 999.0,
+                Color = "blue", Price = 999.0, PreviousOwner = ownerReposetory.GetOwnerById(1)
             },
-            new Core.Entity2.Pet()
+            new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 4, Name = "per", Species = "Dog",
                 Color = "blue", Price = 80.0,
             },
-            new Core.Entity2.Pet()
+            new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 5, Name = "per", Species = "Dog",
                 Color = "blue", Price = 40.20,
             },
-            new Core.Entity2.Pet()
+            new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 6, Name = "per", Species = "Dog",
                 Color = "blue", Price = 0.2,
