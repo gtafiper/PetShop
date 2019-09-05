@@ -22,7 +22,7 @@ namespace ApplicationService2
 
         Pet UpdatePet(Pet petToUpdate);
 
-        void DeltedPet(int Id);
+        Pet DeltedPet(int Id);
 
         List<Pet> GetPetsBySpecies(string specise);
 

@@ -71,9 +71,9 @@ namespace ApplicationService2
 
         }
 
-        public void DeltedPet(int Id)
+        public Pet DeltedPet(int Id)
         {
-            _petRepo.DeletePet(Id);
+           return _petRepo.DeletePet(Id);
         }
 
         
