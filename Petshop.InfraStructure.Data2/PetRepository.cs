@@ -29,18 +29,18 @@ namespace Petshop.InfraStructure.Data2
 
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 1, Name = "bob", Species = "Rock",
-                Color = "blue", Price = 20, PreviousOwner = ownerReposetory.GetOwnerById(3)
+                Color = "blue", Price = 20, PreviousOwnerIds = new List<int>(){2}
             },
             new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
-                Color = "blue", Price = 99.99, PreviousOwner = ownerReposetory.CreatOwner(new Owner(){Firstname = "Lars", Adress = "NederenVej 42 42th", Lastname = "Øv"})
+                Color = "blue", Price = 99.99, PreviousOwnerIds = new List<int>(){3,4,1}
             },
 
             new Pet()
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
-                Color = "blue", Price = 999.0, PreviousOwner = ownerReposetory.GetOwnerById(1)
+                Color = "blue", Price = 999.0, PreviousOwnerIds= new List<int>(){2,1}
             },
             new Pet()
             {
@@ -103,7 +103,7 @@ namespace Petshop.InfraStructure.Data2
                 petFromDb.Price = upDatedPet.Price;
                 petFromDb.Birthdate = upDatedPet.Birthdate;
                 petFromDb.Color = upDatedPet.Color;
-                petFromDb.PreviousOwner = upDatedPet.PreviousOwner;
+                petFromDb.PreviousOwnerIds = upDatedPet.PreviousOwnerIds;
                 petFromDb.SoldDate = petFromDb.SoldDate;
                 petFromDb.Species = upDatedPet.Species;
 
@@ -123,6 +123,16 @@ namespace Petshop.InfraStructure.Data2
             }
 
             return null;
+        }
+
+        public List<Owner> GetOwners(Pet pet)
+        {
+            List<int> list = pet.PreviousOwnerIds;
+
+            foreach (var ownersToFind in list)
+            {
+                
+            }
         }
 
 

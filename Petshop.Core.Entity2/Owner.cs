@@ -13,5 +13,7 @@ namespace Petshop.Core.Entity2
         public string Lastname { get; set; }
 
         public string Adress { get; set; }
+
+        public List<int> PetIds;
     }
 }

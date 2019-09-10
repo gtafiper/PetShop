@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Petshop.Core.Entity2
 {
@@ -16,7 +17,7 @@ namespace Petshop.Core.Entity2
 
         public string Color { get; set; }
 
-        public Owner PreviousOwner { get; set; }
+        public List<int> PreviousOwnerIds { get; set; }
 
         public double Price { get; set; }
 

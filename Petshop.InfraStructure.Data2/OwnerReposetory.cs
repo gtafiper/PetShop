@@ -12,9 +12,10 @@ namespace Petshop.InfraStructure.Data2
     {
         private static List<Owner> _ListOfOwners = new List<Owner>()
         {
-            new Owner(){Adress = "Sportsvej",Firstname = "Per", Lastname = "Person", Id = 1},
-            new Owner(){Adress = "Sportsvej",Firstname = "Per", Lastname = "Person", Id = 2},
-            new Owner(){Adress = "Sportsvej",Firstname = "Ole", Lastname = "Whedel", Id = 3}
+            new Owner(){Adress = "Sportsvej",Firstname = "Per", Lastname = "Person", Id = 1, PetIds = new List<int>(){4}},
+            new Owner(){Adress = "Sportsvej",Firstname = "Per", Lastname = "Person", Id = 2, PetIds = new List<int>(){5}},
+            new Owner(){Adress = "Sportsvej",Firstname = "Ole", Lastname = "Whedel", Id = 3, PetIds = new List<int>(){1}},
+            new Owner(){Adress = "nilsbors Vej", PetIds = new List<int>(){2,3}, Firstname = "Chr", Id = 4, Lastname = "Olesen"}
 
         };
 
@@ -71,5 +72,7 @@ namespace Petshop.InfraStructure.Data2
                 return null;
             }
         }
+
+        
     }
 }
