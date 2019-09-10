@@ -27,7 +27,7 @@ namespace ApplicationService2
                 Color = color,
                 Price = price,
                 Birthdate = birthdate,
-                PreviousOwner = new Owner(),
+                PreviousOwnerIds = new List<int>(), 
                 Species = species
             };
             return pet;
@@ -65,12 +65,17 @@ namespace ApplicationService2
             pet.Price = petToUpdate.Price;
             pet.Birthdate = petToUpdate.Birthdate;
             pet.Color = petToUpdate.Color;
-            pet.PreviousOwner = petToUpdate.PreviousOwner;
+            pet.PreviousOwnerIds = petToUpdate.PreviousOwnerIds;
             pet.SoldDate = pet.SoldDate;
             pet.Species = petToUpdate.Species;
 
             return pet;
 
+        }
+
+        public Owner GetOwners(Pet pet)
+        {
+            return _petRepo.GetOwners(pet);
         }
 
         public Pet DeltedPet(int Id)

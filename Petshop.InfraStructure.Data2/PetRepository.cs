@@ -125,14 +125,19 @@ namespace Petshop.InfraStructure.Data2
             return null;
         }
 
-        public List<Owner> GetOwners(Pet pet)
+        public Owner GetOwners(Pet pet)
         {
-            List<int> list = pet.PreviousOwnerIds;
-
-            foreach (var ownersToFind in list)
+            
+           Owner owner = new Owner();
+            foreach (var id in pet.PreviousOwnerIds)
             {
+                owner = ownerReposetory.GetOwnerById(id);
                 
             }
+
+            return owner;
+
+
         }
 
 

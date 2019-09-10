@@ -32,6 +32,7 @@ namespace ApplicationService2
 
         List<Pet> GetFiveCheapest();
 
+        Owner GetOwners(Pet pet);
 
 
    }
