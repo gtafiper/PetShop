@@ -8,11 +8,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Petshop.InfraStructure.Data2;
+using Petshop.Core.Entity2;
+using Petshop.Inferstructur.SQL;
+using Petshop.Inferstructur.SQL.Reposetory;
+
 
 namespace Pets.Api.Conroller
 {
@@ -29,8 +33,10 @@ namespace Pets.Api.Conroller
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IPetService, PetServices>();
-            services.AddScoped<IPetRepository, PetRepository>();
+            services.AddScoped<IPetRepository, PetReposetory>();
             services.AddScoped<iOwnerReposetory, OwnerReposetory>();
+            services.AddDbContext<PetContext>(
+                opt => opt.UseSqlite("Date Source= Petshop.db"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

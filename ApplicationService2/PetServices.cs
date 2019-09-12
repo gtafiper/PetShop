@@ -27,7 +27,7 @@ namespace ApplicationService2
                 Color = color,
                 Price = price,
                 Birthdate = birthdate,
-                PreviousOwner = new Owner(),
+                PreviousOwners = new List<Owner>(),
                 Species = species
             };
             return pet;
@@ -65,7 +65,7 @@ namespace ApplicationService2
             pet.Price = petToUpdate.Price;
             pet.Birthdate = petToUpdate.Birthdate;
             pet.Color = petToUpdate.Color;
-            pet.PreviousOwner = petToUpdate.PreviousOwner;
+            pet.PreviousOwners = new List<Owner>();
             pet.SoldDate = pet.SoldDate;
             pet.Species = petToUpdate.Species;
 
