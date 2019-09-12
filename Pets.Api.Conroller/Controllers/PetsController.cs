@@ -24,7 +24,17 @@ namespace Pets.Api.Conroller.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Pet>> GetAllPets()
         {
+
+
+            foreach (var pet in _petePetService.GetAllPets())
+            {
+                _petePetService.GetOwners(pet);
+            }
+
             return _petePetService.GetAllPets();
+
+
+
         }
 
         [HttpGet("{id}")]
