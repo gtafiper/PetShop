@@ -100,7 +100,9 @@ namespace ApplicationService2
             return GetPetsByPrice().Take(5).ToList();
         }
 
-
-        
+        public Owner GetOwners(Pet pet)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
