@@ -14,7 +14,6 @@ namespace Petshop.Consol2
             
             serviceCollection.AddScoped<IPetService, PetServices>();
             serviceCollection.AddScoped<IPrinter, Printer>();
-            serviceCollection.AddScoped<IMenuitemsReposetory, MenuitemsReposetory>();
             serviceCollection.AddScoped<IPetRepository, PetRepository>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();

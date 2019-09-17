@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Petshop.Core.Entity2;
+using Petshop.Core.Entity;
 using Petshop.Inferstructur.SQL;
 using Petshop.Inferstructur.SQL.Reposetory;
 
@@ -35,7 +35,7 @@ namespace Pets.Api.Conroller
             services.AddScoped<IPetService, PetServices>();
             services.AddScoped<IPetRepository, PetReposetory>();
             services.AddScoped<iOwnerReposetory, OwnerReposetory>();
-            services.AddDbContext<PetContext>(
+            services.AddDbContext<Context>(
                 opt => opt.UseSqlite("Date Source= Petshop.db"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -46,6 +46,7 @@ namespace Pets.Api.Conroller
         {
             if (env.IsDevelopment())
             {
+                
                 app.UseDeveloperExceptionPage();
             }
             else

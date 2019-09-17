@@ -1,8 +1,8 @@
-﻿namespace Petshop.Core.Entity2
+﻿namespace Petshop.Core.Entity
 {
         public class MenuItem
     {
-        public string Name;
+        public readonly string Name;
 
         public MenuItem(string name)
         {

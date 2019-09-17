@@ -22,7 +22,7 @@
     <ProjectReference Include="..\ApplicationService2\ApplicationService2.csproj" />
     <ProjectReference Include="..\Core.DomainService2\Core.DomainService2.csproj" />
     <ProjectReference Include="..\Petshop.Core.Entity2\Petshop.Core.Entity2.csproj" />
-    <ProjectReference Include="..\Petshop.Inferstructur.SQL\Petshop.Inferstructur.SQL.csproj" />
+    <ProjectReference Include="..\Petshop.Inferstructur.Data\Petshop.Inferstructur.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Core.DomainService2;
-using Petshop.Core.Entity2;
+using Petshop.Core.Entity;
 
 namespace Petshop.Inferstructur.SQL.Reposetory
 {
     public class PetReposetory : IPetRepository
     {
-        private PetContext _context;
+        private Context _context;
 
-        public PetReposetory(PetContext context)
+        public PetReposetory(Context context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public Pet FindPetById(int Id)
         {
-            return _context.pets.FirstOrDefault(p => p.ID == Id);
+            return _context.Pets.FirstOrDefault(p => p.ID == Id);
         }
 
         public List<Pet> GetAllPets()

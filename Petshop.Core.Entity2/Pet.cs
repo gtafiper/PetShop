@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Petshop.Core.Entity2
+namespace Petshop.Core.Entity
 {
     public class Pet
     {

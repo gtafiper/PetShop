@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Petshop.Core.Entity2
+namespace Petshop.Core.Entity
 {
     public class Owner 
     {
@@ -14,6 +14,6 @@ namespace Petshop.Core.Entity2
 
         public string Adress { get; set; }
 
-        public List<int> PetIds;
+        public List<Pet> listOfPets { get; set; }
     }
 }

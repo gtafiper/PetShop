@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Core.DomainService2;
-using Petshop.Core.Entity2;
+using Petshop.Core.Entity;
 
 namespace Petshop.InfraStructure.Data2
 {
@@ -29,34 +29,34 @@ namespace Petshop.InfraStructure.Data2
 
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 1, Name = "bob", Species = "Rock",
-                Color = "blue", Price = 20, PreviousOwnerIds = new List<int>(){2}
+                Color = "blue", Price = 20, PreviousOwners = new List<Owner>(){new Owner(){Adress = "sted", Firstname = "chris", Id = 8, Lastname = "ole"}}
             },
-            new Pet()
-            {
-                Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
-                Color = "blue", Price = 99.99, PreviousOwnerIds = new List<int>(){3,4,1}
-            },
-
-            new Pet()
-            {
-                Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
-                Color = "blue", Price = 999.0, PreviousOwnerIds= new List<int>(){2,1}
-            },
-            new Pet()
-            {
-                Birthdate = new DateTime(2002, 9, 20), ID = 4, Name = "per", Species = "Dog",
-                Color = "blue", Price = 80.0,
-            },
-            new Pet()
-            {
-                Birthdate = new DateTime(2002, 9, 20), ID = 5, Name = "per", Species = "Dog",
-                Color = "blue", Price = 40.20,
-            },
-            new Pet()
-            {
-                Birthdate = new DateTime(2002, 9, 20), ID = 6, Name = "per", Species = "Dog",
-                Color = "blue", Price = 0.2,
-            },
+//            new Pet()
+//            {
+//                Birthdate = new DateTime(2002, 9, 20), ID = 2, Name = "per", Species = "Dog",
+//                Color = "blue", Price = 99.99, PreviousOwnerIds = new List<int>(){3,4,1}
+//            },
+//
+//            new Pet()
+//            {
+//                Birthdate = new DateTime(2002, 9, 20), ID = 3, Name = "per", Species = "Dog",
+//                Color = "blue", Price = 999.0, PreviousOwnerIds= new List<int>(){2,1}
+//            },
+//            new Pet()
+//            {
+//                Birthdate = new DateTime(2002, 9, 20), ID = 4, Name = "per", Species = "Dog",
+//                Color = "blue", Price = 80.0,
+//            },
+//            new Pet()
+//            {
+//                Birthdate = new DateTime(2002, 9, 20), ID = 5, Name = "per", Species = "Dog",
+//                Color = "blue", Price = 40.20,
+//            },
+//            new Pet()
+//            {
+//                Birthdate = new DateTime(2002, 9, 20), ID = 6, Name = "per", Species = "Dog",
+//                Color = "blue", Price = 0.2,
+//            },
         };
 
 
@@ -103,7 +103,7 @@ namespace Petshop.InfraStructure.Data2
                 petFromDb.Price = upDatedPet.Price;
                 petFromDb.Birthdate = upDatedPet.Birthdate;
                 petFromDb.Color = upDatedPet.Color;
-                petFromDb.PreviousOwnerIds = upDatedPet.PreviousOwnerIds;
+                petFromDb.PreviousOwners = upDatedPet.PreviousOwners;
                 petFromDb.SoldDate = petFromDb.SoldDate;
                 petFromDb.Species = upDatedPet.Species;
 
@@ -125,12 +125,9 @@ namespace Petshop.InfraStructure.Data2
             return null;
         }
 
-   
-
-
-
-
-
-
+        public Owner GetOwners(Pet pet)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

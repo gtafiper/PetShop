@@ -7,7 +7,7 @@ using ApplicationService2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
-using Petshop.Core.Entity2;
+using Petshop.Core.Entity;
 
 namespace Pets.Api.Conroller.Controllers
 {

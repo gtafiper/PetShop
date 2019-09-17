@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Core.DomainService2;
-using Petshop.Core.Entity2;
+using Petshop.Core.Entity;
 
 namespace Petshop.Inferstructur.SQL.Reposetory
 {
     public class OwnerReposetory : iOwnerReposetory
 
     {
-        private OwnerContext _context;
+        private readonly Context _context;
 
-        public OwnerReposetory(OwnerContext context)
+        public OwnerReposetory(Context context)
         {
             _context = context;
         }
@@ -35,12 +35,12 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public Owner GetOwnerById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Owners.FirstOrDefault(O => O.Id == id);
         }
 
         public List<Owner> GetAllOwners()
         {
-            return _context.owners.ToList();
+            return _context.Owners.ToList();
         }
     }
 }

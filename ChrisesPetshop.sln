@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Core.Entity2", "Pet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Consol2", "Petshop.Consol2\Petshop.Consol2.csproj", "{5F507FFD-4C1B-4D6E-8AF4-F61045DF32F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.InfraStructure.Data2", "Petshop.InfraStructure.Data2\Petshop.InfraStructure.Data2.csproj", "{12289964-4250-4D1D-9CB1-2CB8890E2C35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.InfraStructure", "Petshop.InfraStructure\Petshop.InfraStructure.csproj", "{12289964-4250-4D1D-9CB1-2CB8890E2C35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petshop.Inferstructur.SQL", "Petshop.Inferstructur.SQL\Petshop.Inferstructur.SQL.csproj", "{2F2FA6BF-9444-4ED2-BD64-7CC010A0F0A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petshop.Inferstructur.Data", "Petshop.Inferstructur.Data\Petshop.Inferstructur.Data.csproj", "{2F2FA6BF-9444-4ED2-BD64-7CC010A0F0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

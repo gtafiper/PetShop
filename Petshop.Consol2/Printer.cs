@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ApplicationService2;
-using Petshop.Core.Entity2;
+using Petshop.Core.Entity;
 
 namespace Petshop.Consol2
 {
@@ -14,6 +14,25 @@ namespace Petshop.Consol2
         {
             _petService = petService;
         }
+        
+        public List<MenuItem> menuItemses = new List<MenuItem>()
+        {
+            new MenuItem("List of pets"),
+            new MenuItem("Add new pet"),
+            new MenuItem("Delete pet"),
+            new MenuItem("Edit pet"),
+            new MenuItem("Search Pets by Type"),
+            new MenuItem("Get pets soretd by price"),
+            new MenuItem("Get top five cheapest pets"),
+            new MenuItem("Exit program")
+
+        };
+
+        public List<MenuItem> GetAllMenuItems()
+        {
+            return menuItemses;
+        }
+    
 
 
 
@@ -22,13 +41,13 @@ namespace Petshop.Consol2
             Console.Clear();
             Console.WriteLine("\nType the number for the action you wish \n");
             int i = 0;
-            foreach (var item in _petService.getAllMenuItems())
+            foreach (var item in menuItemses)
             {
                 i++;
                 Console.WriteLine(i + ":" + item.Name);
             }
 
-            return _petService.getAllMenuItems();
+            return GetAllMenuItems();
         }
 
 
@@ -290,7 +309,7 @@ namespace Petshop.Consol2
                         Price = newprice,
                         Species = newspecies,
                         Color = newcolor,
-                        PreviousOwner = newpreOvner,
+                        PreviousOwners = new List<Owner>(),
                         Birthdate = newbirthdate,
                         SoldDate = newsoldDate,
 
