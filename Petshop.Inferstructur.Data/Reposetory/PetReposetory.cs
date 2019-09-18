@@ -41,6 +41,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
         public Pet DeletePet(int id)
         {
             var petToRemove = _context.Remove(new Pet {ID = id}).Entity;
+            _context.SaveChanges();
             return petToRemove;
         }
 
