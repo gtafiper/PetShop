@@ -14,6 +14,7 @@
     <ProjectReference Include="..\Core.DomainService2\Core.DomainService2.csproj" />
     <ProjectReference Include="..\Petshop.Core.Entity2\Petshop.Core.Entity2.csproj" />
     <ProjectReference Include="..\Petshop.InfraStructure\Petshop.InfraStructure.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
 </Project>

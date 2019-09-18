@@ -17,21 +17,12 @@ namespace Petshop.Core.Entity
 
         public string Color { get; set; }
 
-        public List<Owner> PreviousOwners { get; set; }
+        public Owner PreviousOwners { get; set; }
 
         public double Price { get; set; }
 
 
-        public enum Type
-        {
-            Cat,
-            Dog,
-            Goat,
-            Fish,
-            Snake,
-            Sausage,
-            Rock
-        }
+        
 
 
 

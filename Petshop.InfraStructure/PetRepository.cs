@@ -29,7 +29,7 @@ namespace Petshop.InfraStructure.Data2
 
             {
                 Birthdate = new DateTime(2002, 9, 20), ID = 1, Name = "bob", Species = "Rock",
-                Color = "blue", Price = 20, PreviousOwners = new List<Owner>(){new Owner(){Adress = "sted", Firstname = "chris", Id = 8, Lastname = "ole"}}
+                Color = "blue", Price = 20, //PreviousOwners = new List<Owner>(){new Owner(){Adress = "sted", Firstname = "chris", Id = 8, Lastname = "ole"}}
             },
 //            new Pet()
 //            {
@@ -125,9 +125,11 @@ namespace Petshop.InfraStructure.Data2
             return null;
         }
 
-        public Owner GetOwners(Pet pet)
+        public Owner GetOwner(Owner owner)
         {
-            throw new NotImplementedException();
+            return ownerReposetory.GetOwnerById(owner.Id);
         }
+
+        
     }
 }

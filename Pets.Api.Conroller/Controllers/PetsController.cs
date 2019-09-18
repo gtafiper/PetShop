@@ -26,10 +26,10 @@ namespace Pets.Api.Conroller.Controllers
         {
 
 
-            foreach (var pet in _petePetService.GetAllPets())
-            {
-                _petePetService.GetOwners(pet);
-            }
+            //foreach (var pet in _petePetService.GetAllPets())
+                  //       {
+                //             _petePetService.GetOwners(pet);
+              //           }
 
             return _petePetService.GetAllPets();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Core.DomainService2;
+using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
 
 namespace Petshop.Inferstructur.SQL.Reposetory
@@ -17,9 +18,9 @@ namespace Petshop.Inferstructur.SQL.Reposetory
         }
         public Pet CreatePet(Pet pet)
         {
-            var PetToCreate = _context.Add(pet).Entity;
+            var petToCreate = _context.Add(pet).Entity;
             _context.SaveChanges();
-            return pet;
+            return petToCreate;
         }
 
         public Pet FindPetById(int Id)
@@ -29,7 +30,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public List<Pet> GetAllPets()
         {
-            throw new NotImplementedException();
+            return _context.Pets.Include(p => p.PreviousOwners).ToList();
         }
 
         public Pet UpdatePet(Pet UpDatedPet)
@@ -43,9 +44,9 @@ namespace Petshop.Inferstructur.SQL.Reposetory
             return petToRemove;
         }
 
-        public Owner GetOwners(Pet pet)
+        public Owner GetOwner(Owner owner)
         {
-            throw new NotImplementedException();
+            return _context.Owners.FirstOrDefault(o => o.Id == owner.Id);
         }
     }
 }

@@ -309,7 +309,7 @@ namespace Petshop.Consol2
                         Price = newprice,
                         Species = newspecies,
                         Color = newcolor,
-                        PreviousOwners = new List<Owner>(),
+                        PreviousOwners = new Owner(),
                         Birthdate = newbirthdate,
                         SoldDate = newsoldDate,
 

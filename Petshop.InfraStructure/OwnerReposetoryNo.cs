@@ -70,6 +70,9 @@ namespace Petshop.InfraStructure.Data2
             }
         }
 
-        
+        public List<Owner> GetAllOwners()
+        {
+            return _ListOfOwners;
+        }
     }
 }

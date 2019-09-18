@@ -27,7 +27,7 @@ namespace ApplicationService2
                 Color = color,
                 Price = price,
                 Birthdate = birthdate,
-                PreviousOwners = new List<Owner>(),
+               // PreviousOwners = new List<Owner>(),
                 Species = species
             };
             return pet;
@@ -65,7 +65,7 @@ namespace ApplicationService2
             pet.Price = petToUpdate.Price;
             pet.Birthdate = petToUpdate.Birthdate;
             pet.Color = petToUpdate.Color;
-            pet.PreviousOwners = new List<Owner>();
+            pet.PreviousOwners = new Owner();
             pet.SoldDate = pet.SoldDate;
             pet.Species = petToUpdate.Species;
 
@@ -102,7 +102,7 @@ namespace ApplicationService2
 
         public Owner GetOwners(Pet pet)
         {
-            throw new NotImplementedException();
+            return pet.PreviousOwners;
         }
     }
 }

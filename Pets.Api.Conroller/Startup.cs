@@ -32,11 +32,15 @@ namespace Pets.Api.Conroller
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /*services.AddDbContext<Context>( opt => opt.UseInMemoryDatabase("Database"));
+             */
+            services.AddDbContext<Context>(
+                opt => opt.UseSqlite("Data Source=PetShop.db"));
             services.AddScoped<IPetService, PetServices>();
+            services.AddScoped<IOwnerService, OwnerService>();
             services.AddScoped<IPetRepository, PetReposetory>();
             services.AddScoped<iOwnerReposetory, OwnerReposetory>();
-            services.AddDbContext<Context>(
-                opt => opt.UseSqlite("Date Source= Petshop.db"));
+            
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -48,6 +52,33 @@ namespace Pets.Api.Conroller
             {
                 
                 app.UseDeveloperExceptionPage();
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<Context>();
+                    ctx.Database.EnsureDeleted();
+                    ctx.Database.EnsureCreated();
+                    var owner = ctx.Owners.Add(new Owner()
+                    {
+                        Adress = "nej gade",
+                        Firstname = "Nej",
+                        Lastname = "Lastname",
+                        
+                    }).Entity;
+                    
+                    var pet = ctx.Pets.Add(new Pet()
+                    {
+                        Name = "chr",
+                        Color = "sort som døden",
+                        Birthdate = DateTime.Now,
+                        Price = 99999,
+                        Species = "ko",
+                        
+                        PreviousOwners = owner,
+                        SoldDate = DateTime.Today
+                    }).Entity;
+
+                    ctx.SaveChanges();
+                }
             }
             else
             {

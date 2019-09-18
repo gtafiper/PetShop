@@ -16,6 +16,8 @@ namespace Core.DomainService2
 
         Owner GetOwnerById(int id);
 
+        List<Owner> GetAllOwners();
+
 
     }
 }

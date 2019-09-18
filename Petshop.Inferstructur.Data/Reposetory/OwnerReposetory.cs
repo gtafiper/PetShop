@@ -20,7 +20,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
         {
             var OwerToCrate = _context.Add(owner).Entity;
             _context.SaveChanges();
-            return owner;
+            return OwerToCrate;
         }
 
         public Owner DeletedOwner(int id)
