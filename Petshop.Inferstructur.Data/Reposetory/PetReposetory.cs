@@ -30,7 +30,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public List<Pet> GetAllPets()
         {
-            return _context.Pets.Include(p => p.PreviousOwners).ToList();
+            return _context.Pets.Include(po => po.PreviousOwners).ToList();
         }
 
         public Pet UpdatePet(Pet UpDatedPet)

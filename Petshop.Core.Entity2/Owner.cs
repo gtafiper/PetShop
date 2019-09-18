@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace Petshop.Core.Entity
 {
@@ -14,6 +15,6 @@ namespace Petshop.Core.Entity
 
         public string Adress { get; set; }
 
-        //public List<Pet> listOfPets { get; set; }
+        public List<PetOwner> PetOwners { get; set; }
     }
 }

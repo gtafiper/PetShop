@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.DomainService2;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace ApplicationService2
 {
@@ -65,7 +66,7 @@ namespace ApplicationService2
             pet.Price = petToUpdate.Price;
             pet.Birthdate = petToUpdate.Birthdate;
             pet.Color = petToUpdate.Color;
-            pet.PreviousOwners = new Owner();
+            pet.PreviousOwners = new List<PetOwner>();
             pet.SoldDate = pet.SoldDate;
             pet.Species = petToUpdate.Species;
 
@@ -100,7 +101,7 @@ namespace ApplicationService2
             return GetPetsByPrice().Take(5).ToList();
         }
 
-        public Owner GetOwners(Pet pet)
+        public IEnumerable<PetOwner> GetOwners(Pet pet)
         {
             return pet.PreviousOwners;
         }

@@ -73,7 +73,7 @@ namespace Pets.Api.Conroller
                         Price = 99999,
                         Species = "ko",
                         
-                        PreviousOwners = owner,
+                        PreviousOwners = new List<PetOwner>(){},
                         SoldDate = DateTime.Today
                     }).Entity;
 

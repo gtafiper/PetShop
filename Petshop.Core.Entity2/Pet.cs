@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace Petshop.Core.Entity
 {
@@ -17,9 +18,11 @@ namespace Petshop.Core.Entity
 
         public string Color { get; set; }
 
-        public Owner PreviousOwners { get; set; }
+        public IEnumerable<PetOwner> PreviousOwners { get; set; }
 
         public double Price { get; set; }
+        
+        
 
 
         
