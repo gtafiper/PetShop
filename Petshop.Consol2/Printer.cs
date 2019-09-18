@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ApplicationService2;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace Petshop.Consol2
 {
@@ -309,7 +310,7 @@ namespace Petshop.Consol2
                         Price = newprice,
                         Species = newspecies,
                         Color = newcolor,
-                        PreviousOwners = new Owner(),
+                        PreviousOwners = new List<PetOwner>(),
                         Birthdate = newbirthdate,
                         SoldDate = newsoldDate,
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Core.DomainService2;
+using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
 
 namespace Petshop.Inferstructur.SQL.Reposetory
@@ -42,7 +43,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public List<Owner> GetAllOwners()
         {
-            return _context.Owners.ToList();
+            return _context.Owners.Include(po => po.PetOwners).ToList();
         }
     }
 }

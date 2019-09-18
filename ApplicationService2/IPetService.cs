@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace ApplicationService2
 {
@@ -32,7 +33,7 @@ namespace ApplicationService2
 
         List<Pet> GetFiveCheapest();
 
-        Owner GetOwners(Pet pet);
+        IEnumerable<PetOwner> GetOwners(Pet pet);
 
 
    }
