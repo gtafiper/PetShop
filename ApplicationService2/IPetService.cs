@@ -28,7 +28,7 @@ namespace ApplicationService2
 
         List<Pet> GetPetsBySpecies(string specise);
 
-        
+
 
         List<Pet> GetPetsByPrice();
 

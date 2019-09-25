@@ -5,8 +5,9 @@ using System.Text;
 using Core.DomainService2;
 using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.SQL;
 
-namespace Petshop.Inferstructur.SQL.Reposetory
+namespace Petshop.Inferstructur.Data.Reposetory
 {
     public class OwnerReposetory : iOwnerReposetory
 
@@ -26,7 +27,9 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public Owner DeletedOwner(int id)
         {
-            throw new NotImplementedException();
+            var OwnerToRemove = _context.Remove(new Owner() {Id = id}).Entity;
+            _context.SaveChanges();
+            return OwnerToRemove;
         }
 
         public Owner UpdateOwner(Owner owner)

@@ -6,8 +6,9 @@ using Core.DomainService2;
 using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
 using Petshop.Core.Entity2;
+using Petshop.Inferstructur.SQL;
 
-namespace Petshop.Inferstructur.SQL.Reposetory
+namespace Petshop.Inferstructur.Data.Reposetory
 {
     public class PetReposetory : IPetRepository
     {
@@ -22,7 +23,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
             _context.Attach(pet).State = EntityState.Added;
             _context.SaveChanges();
 //            var changeTracker = _context.ChangeTracker.Entries<PetOwner>();
-//            if (PetOwner != null && 
+//            if (PetOwner != null &&
 //               _context.ChangeTracker.Entries<PetOwner>().FirstOrDefault(oe => oe.Entity.Owner.Id == O ))
 //            {
 //                _context.Attach(pet.PreviousOwners);
@@ -41,7 +42,8 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public List<Pet> GetAllPets(Filter filter)
         {
-            return _context.Pets.Include(po => po.PreviousOwners).ToList();
+            return _context.Pets.Include(o => o.PreviousOwners).ThenInclude(po => po.Owner).ToList();
+
         }
 
         public List<Pet> GetAllFiltertPets(Filter filter)
@@ -58,7 +60,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
         public Pet UpdatePet(Pet petToUpdate)
         {
             _context.Attach(petToUpdate).State = EntityState.Modified;
-            
+
             _context.SaveChanges();
             return petToUpdate;
         }
@@ -66,6 +68,7 @@ namespace Petshop.Inferstructur.SQL.Reposetory
         public Pet DeletePet(int id)
         {
             var petToRemove = _context.Remove(new Pet {ID = id}).Entity;
+            _context.SaveChanges();
             return petToRemove;
         }
 
