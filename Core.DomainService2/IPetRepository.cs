@@ -13,7 +13,7 @@ namespace Core.DomainService2
 
         
 
-        Pet UpdatePet(Pet UpDatedPet);
+        Pet UpdatePet(Pet petToUpdate);
 
         Pet DeletePet(int id);
         Owner GetOwner(Owner owner);

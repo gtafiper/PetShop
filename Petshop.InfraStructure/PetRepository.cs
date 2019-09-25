@@ -93,19 +93,19 @@ namespace Petshop.InfraStructure.Data2
         }
 
 
-        public Pet UpdatePet(Pet upDatedPet)
+        public Pet UpdatePet(Pet petToUpdate)
         {
-            var petFromDb = this.FindPetById(upDatedPet.ID);
+            var petFromDb = this.FindPetById(petToUpdate.ID);
 
             if (petFromDb != null)
             {
-                petFromDb.Name = upDatedPet.Name;
-                petFromDb.Price = upDatedPet.Price;
-                petFromDb.Birthdate = upDatedPet.Birthdate;
-                petFromDb.Color = upDatedPet.Color;
-                petFromDb.PreviousOwners = upDatedPet.PreviousOwners;
+                petFromDb.Name = petToUpdate.Name;
+                petFromDb.Price = petToUpdate.Price;
+                petFromDb.Birthdate = petToUpdate.Birthdate;
+                petFromDb.Color = petToUpdate.Color;
+                petFromDb.PreviousOwners = petToUpdate.PreviousOwners;
                 petFromDb.SoldDate = petFromDb.SoldDate;
-                petFromDb.Species = upDatedPet.Species;
+                petFromDb.Species = petToUpdate.Species;
 
                 return petFromDb;
             }
