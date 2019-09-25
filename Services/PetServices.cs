@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Core.DomainService2;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
+using Petshop.Inferstructur.SQL.Reposetory;
 using Petshop.Inferstructur.Data.Reposetory;
 
 namespace ApplicationService2
@@ -10,15 +13,15 @@ namespace ApplicationService2
     public class PetServices: IPetService
     {
         readonly IPetRepository _petRepo;
-        
+
 
         public PetServices(IPetRepository petRepository)
         {
             _petRepo = petRepository;
-            
+
         }
 
-        
+
 
         public Pet NewPet(string name, DateTime birthdate, string color, double price, string prOvner, string species )
         {
@@ -34,7 +37,7 @@ namespace ApplicationService2
             return pet;
         }
 
-       
+
 
         public Pet CreatePet(Pet pet)
         {
@@ -44,17 +47,19 @@ namespace ApplicationService2
 
 
         }
-        
+
         public Pet FindPetById(int Id)
         {
             return _petRepo.FindPetById(Id);
         }
 
-        public List<Pet> GetAllPets()
+
+
+        public List<Pet> GetAllPets(Filter filter)
         {
             var list = _petRepo.GetAllPets();
 
-            
+
             _petRepo.GetAllPets().OrderBy(pet => pet.Species);
             return list.ToList();
         }
@@ -79,7 +84,7 @@ namespace ApplicationService2
            return _petRepo.DeletePet(Id);
         }
 
-        
+
         public List<Pet> GetPetsBySpecies(string species)
         {
             string strToLower = species.ToLower();
@@ -104,6 +109,20 @@ namespace ApplicationService2
         public IEnumerable<PetOwner> GetOwners(Pet pet)
         {
             return pet.PreviousOwners;
+        }
+
+        public List<Pet> GetAllFiltertPets(Filter filter)
+        {
+            if (filter.CurrentPage < 0)
+            {
+                throw new InvalidDataException("CurrentPage and items per page must be 0 ore more");
+            }
+
+            if (((filter.CurrentPage -1) * filter.ItemsPrPage) >= _petRepo.Count())
+            {
+                throw new InvalidDataException("index out of bounds, Currentpage is to high");
+            }
+            return _petRepo.GetAllPets();
         }
     }
 }

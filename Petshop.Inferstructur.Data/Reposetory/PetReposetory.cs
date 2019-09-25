@@ -5,6 +5,7 @@ using System.Text;
 using Core.DomainService2;
 using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 using Petshop.Inferstructur.SQL;
 
 namespace Petshop.Inferstructur.Data.Reposetory
@@ -22,7 +23,7 @@ namespace Petshop.Inferstructur.Data.Reposetory
             _context.Attach(pet).State = EntityState.Added;
             _context.SaveChanges();
 //            var changeTracker = _context.ChangeTracker.Entries<PetOwner>();
-//            if (PetOwner != null && 
+//            if (PetOwner != null &&
 //               _context.ChangeTracker.Entries<PetOwner>().FirstOrDefault(oe => oe.Entity.Owner.Id == O ))
 //            {
 //                _context.Attach(pet.PreviousOwners);
@@ -42,16 +43,27 @@ namespace Petshop.Inferstructur.Data.Reposetory
                 .FirstOrDefault(p => p.ID == Id);
         }
 
-        public List<Pet> GetAllPets()
+        public List<Pet> GetAllPets(Filter filter)
         {
             return _context.Pets.Include(o => o.PreviousOwners).ThenInclude(po => po.Owner).ToList();
-           
+
+        }
+
+        public List<Pet> GetAllFiltertPets(Filter filter)
+        {
+            if (filter == null)
+            {
+                return _context.Pets.ToList();
+            }
+
+            return _context.Pets
+                .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage).Take(filter.ItemsPrPage).ToList();
         }
 
         public Pet UpdatePet(Pet petToUpdate)
         {
             _context.Attach(petToUpdate).State = EntityState.Modified;
-            
+
             _context.SaveChanges();
             return petToUpdate;
         }
@@ -63,8 +75,14 @@ namespace Petshop.Inferstructur.Data.Reposetory
             return petToRemove;
         }
 
-        
-        
-        
+        public Owner GetOwner(Owner owner)
+        {
+            return _context.Owners.FirstOrDefault(o => o.Id == owner.Id);
+        }
+
+        public int Count()
+        {
+            return _context.Pets.Count();
+        }
     }
 }
