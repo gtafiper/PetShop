@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Core.DomainService2;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace ApplicationService2
@@ -50,7 +52,9 @@ namespace ApplicationService2
             return _petRepo.FindPetById(Id);
         }
 
-        public List<Pet> GetAllPets()
+      
+
+        public List<Pet> GetAllPets(Filter filter)
         {
             var list = _petRepo.GetAllPets();
 
@@ -105,5 +109,19 @@ namespace ApplicationService2
         {
             return pet.PreviousOwners;
         }
+
+        public List<Pet> GetAllFiltertPets(Filter filter)
+        {
+            if (filter.CurrentPage < 0)
+            {
+                throw new InvalidDataException("CurrentPage and items per page must be 0 ore more");
+            }
+
+            if (((filter.CurrentPage -1) * filter.ItemsPrPage) >= _petRepo.Count())
+            {
+                throw new InvalidDataException("index out of bounds, Currentpage is to high");
+            }
+            return _petRepo.GetAllPets(); 
+        } 
     }
 }

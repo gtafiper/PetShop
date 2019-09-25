@@ -5,6 +5,7 @@ using System.Text;
 using Core.DomainService2;
 using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 
 namespace Petshop.Inferstructur.SQL.Reposetory
 {
@@ -38,9 +39,20 @@ namespace Petshop.Inferstructur.SQL.Reposetory
             return _context.Pets.FirstOrDefault(p => p.ID == Id);
         }
 
-        public List<Pet> GetAllPets()
+        public List<Pet> GetAllPets(Filter filter)
         {
             return _context.Pets.Include(po => po.PreviousOwners).ToList();
+        }
+
+        public List<Pet> GetAllFiltertPets(Filter filter)
+        {
+            if (filter == null)
+            {
+                return _context.Pets.ToList();
+            }
+
+            return _context.Pets
+                .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage).Take(filter.ItemsPrPage).ToList();
         }
 
         public Pet UpdatePet(Pet petToUpdate)
@@ -60,6 +72,11 @@ namespace Petshop.Inferstructur.SQL.Reposetory
         public Owner GetOwner(Owner owner)
         {
             return _context.Owners.FirstOrDefault(o => o.Id == owner.Id);
+        }
+
+        public int Count()
+        {
+            return _context.Pets.Count();
         }
     }
 }

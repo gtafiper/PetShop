@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 
 namespace Core.DomainService2
 {
@@ -9,9 +10,11 @@ namespace Core.DomainService2
 
         Pet FindPetById(int Id);
 
-        List<Pet> GetAllPets();
+        List<Pet> GetAllPets(Filter filter = null);
 
-        
+        List<Pet> GetAllFiltertPets(Filter filter);
+
+        int Count();
 
         Pet UpdatePet(Pet petToUpdate);
 

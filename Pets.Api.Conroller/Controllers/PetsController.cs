@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Enumeration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,9 +24,23 @@ namespace Pets.Api.Conroller.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Pet>> GetAllPets([FromQuery] Filter filter)
+        public ActionResult<IEnumerable<Pet>> GetAllPets()
         {
           return _petePetService.GetAllPets();
+        }
+        
+        [HttpGet]
+        public ActionResult<IEnumerable<Pet>> GetAllFiltertPets([FromQuery] Filter filter)
+        {
+            try
+            {
+                return _petePetService.GetAllFiltertPets(filter);
+            }
+            catch (Exception e)
+            {
+                return 
+            }
+            
         }
 
         [HttpGet("{id}")]

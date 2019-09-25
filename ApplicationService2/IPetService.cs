@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 using Petshop.Inferstructur.SQL.Reposetory;
 
 namespace ApplicationService2
@@ -19,7 +20,7 @@ namespace ApplicationService2
 
         Pet FindPetById(int Id);
 
-        List<Pet> GetAllPets();
+        List<Pet> GetAllPets(Filter filter = null);
 
         Pet UpdatePet(Pet petToUpdate);
 
@@ -34,6 +35,8 @@ namespace ApplicationService2
         List<Pet> GetFiveCheapest();
 
         IEnumerable<PetOwner> GetOwners(Pet pet);
+
+        List<Pet> GetAllFiltertPets(Filter filter);
 
 
    }
