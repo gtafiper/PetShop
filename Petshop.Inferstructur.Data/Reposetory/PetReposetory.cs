@@ -19,9 +19,19 @@ namespace Petshop.Inferstructur.Data.Reposetory
         }
         public Pet CreatePet(Pet pet)
         {
-            var petToCreate = _context.Add(pet).Entity;
+            _context.Attach(pet).State = EntityState.Added;
             _context.SaveChanges();
-            return petToCreate;
+//            var changeTracker = _context.ChangeTracker.Entries<PetOwner>();
+//            if (PetOwner != null && 
+//               _context.ChangeTracker.Entries<PetOwner>().FirstOrDefault(oe => oe.Entity.Owner.Id == O ))
+//            {
+//                _context.Attach(pet.PreviousOwners);
+//            }
+//            var petToCreate = _context.Add(pet).Entity;
+//            _context.SaveChanges();
+//            return petToCreate;
+            return pet;
+
         }
 
         public Pet FindPetById(int Id)
@@ -35,9 +45,12 @@ namespace Petshop.Inferstructur.Data.Reposetory
            
         }
 
-        public Pet UpdatePet(Pet UpDatedPet)
+        public Pet UpdatePet(Pet petToUpdate)
         {
-            throw new NotImplementedException();
+            _context.Attach(petToUpdate).State = EntityState.Modified;
+            
+            _context.SaveChanges();
+            return petToUpdate;
         }
 
         public Pet DeletePet(int id)

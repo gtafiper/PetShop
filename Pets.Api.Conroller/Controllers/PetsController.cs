@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 
 namespace Pets.Api.Conroller.Controllers
 {
@@ -22,19 +23,9 @@ namespace Pets.Api.Conroller.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Pet>> GetAllPets()
+        public ActionResult<IEnumerable<Pet>> GetAllPets([FromQuery] Filter filter)
         {
-
-
-            //foreach (var pet in _petePetService.GetAllPets())
-                  //       {
-                //             _petePetService.GetOwners(pet);
-              //           }
-
-            return _petePetService.GetAllPets();
-
-
-
+          return _petePetService.GetAllPets();
         }
 
         [HttpGet("{id}")]
