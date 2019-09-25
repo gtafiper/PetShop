@@ -36,7 +36,10 @@ namespace Petshop.Inferstructur.Data.Reposetory
 
         public Pet FindPetById(int Id)
         {
-            return _context.Pets.FirstOrDefault(p => p.ID == Id);
+            return _context.Pets
+                .Include(o => o.PreviousOwners)
+                .ThenInclude(po => po.Owner)
+                .FirstOrDefault(p => p.ID == Id);
         }
 
         public List<Pet> GetAllPets()

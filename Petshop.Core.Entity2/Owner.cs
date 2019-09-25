@@ -15,6 +15,6 @@ namespace Petshop.Core.Entity
 
         public string Adress { get; set; }
 
-        public IList<PetOwner> PetOwners { get; set; }
+        public List<PetOwner> PetOwners { get; set; }
     }
 }
