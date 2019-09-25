@@ -5,8 +5,9 @@ using System.Text;
 using Core.DomainService2;
 using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.SQL;
 
-namespace Petshop.Inferstructur.SQL.Reposetory
+namespace Petshop.Inferstructur.Data.Reposetory
 {
     public class PetReposetory : IPetRepository
     {
@@ -30,7 +31,8 @@ namespace Petshop.Inferstructur.SQL.Reposetory
 
         public List<Pet> GetAllPets()
         {
-            return _context.Pets.Include(po => po.PreviousOwners).ToList();
+            return _context.Pets.Include(o => o.PreviousOwners).ThenInclude(po => po.Owner).ToList();
+           
         }
 
         public Pet UpdatePet(Pet UpDatedPet)
@@ -45,9 +47,8 @@ namespace Petshop.Inferstructur.SQL.Reposetory
             return petToRemove;
         }
 
-        public Owner GetOwner(Owner owner)
-        {
-            return _context.Owners.FirstOrDefault(o => o.Id == owner.Id);
-        }
+        
+        
+        
     }
 }

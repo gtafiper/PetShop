@@ -1,10 +1,11 @@
 ﻿
 using Petshop.Core.Entity;
 
-namespace Petshop.Inferstructur.SQL.Reposetory
+namespace Petshop.Inferstructur.Data.Reposetory
 {
     public class PetOwner
     {
+        public int id;
         public int OwnerId { get; set; }
         public Owner Owner { get; set; }
         

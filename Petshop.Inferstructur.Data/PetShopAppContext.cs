@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
-using Petshop.Inferstructur.SQL.Reposetory;
+using Petshop.Inferstructur.Data.Reposetory;
 
 namespace Petshop.Inferstructur.SQL
 {
     public class Context : DbContext
     {
-        public int OwnerId { get; set; }
+       
         public DbSet<Owner> Owners { get; set; }
         
-        public int PetId { get; set; }
+        public  DbSet<PetOwner> PetOwners { get; set; }
         public DbSet<Pet> Pets { get; set; } 
         
         public Context(DbContextOptions<Context> opt) : base(opt) {}

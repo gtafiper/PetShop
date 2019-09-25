@@ -14,8 +14,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.Data;
+using Petshop.Inferstructur.Data.Reposetory;
 using Petshop.Inferstructur.SQL;
-using Petshop.Inferstructur.SQL.Reposetory;
 
 
 namespace Pets.Api.Conroller
@@ -55,29 +56,7 @@ namespace Pets.Api.Conroller
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
                     var ctx = scope.ServiceProvider.GetService<Context>();
-                    ctx.Database.EnsureDeleted();
-                    ctx.Database.EnsureCreated();
-                    var owner = ctx.Owners.Add(new Owner()
-                    {
-                        Adress = "nej gade",
-                        Firstname = "Nej",
-                        Lastname = "Lastname",
-                        
-                    }).Entity;
-                    
-                    var pet = ctx.Pets.Add(new Pet()
-                    {
-                        Name = "chr",
-                        Color = "sort som døden",
-                        Birthdate = DateTime.Now,
-                        Price = 99999,
-                        Species = "ko",
-                        
-                        PreviousOwners = new List<PetOwner>(){},
-                        SoldDate = DateTime.Today
-                    }).Entity;
-
-                    ctx.SaveChanges();
+                    DbSeeder.seedDb(ctx);
                 }
             }
             else

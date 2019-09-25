@@ -5,8 +5,9 @@ using System.Text;
 using Core.DomainService2;
 using Microsoft.EntityFrameworkCore;
 using Petshop.Core.Entity;
+using Petshop.Inferstructur.SQL;
 
-namespace Petshop.Inferstructur.SQL.Reposetory
+namespace Petshop.Inferstructur.Data.Reposetory
 {
     public class OwnerReposetory : iOwnerReposetory
 

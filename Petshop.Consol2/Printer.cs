@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ApplicationService2;
 using Petshop.Core.Entity;
-using Petshop.Inferstructur.SQL.Reposetory;
+using Petshop.Inferstructur.Data.Reposetory;
 
 namespace Petshop.Consol2
 {

@@ -16,7 +16,7 @@ namespace Core.DomainService2
         Pet UpdatePet(Pet UpDatedPet);
 
         Pet DeletePet(int id);
-        Owner GetOwner(Owner owner);
+        
 
     }
 
