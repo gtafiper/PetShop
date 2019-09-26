@@ -23,14 +23,15 @@ namespace Pets.Api.Conroller.Controllers
             _petePetService = petService;
         }
 
-        [HttpGet]
+       /*[HttpGet]
         public ActionResult<IEnumerable<Pet>> GetAllPets()
         {
           return _petePetService.GetAllPets();
         }
+        */
         
         [HttpGet]
-        public ActionResult<IEnumerable<Pet>> GetAllFiltertPets([FromQuery] Filter filter)
+        public ActionResult<FilteredList<Pet>> GetAllFiltertPets([FromQuery] Filter filter)
         {
             try
             {
@@ -38,7 +39,7 @@ namespace Pets.Api.Conroller.Controllers
             }
             catch (Exception e)
             {
-                return 
+                return null;
             }
             
         }

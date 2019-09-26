@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.DomainService2;
 using Petshop.Core.Entity;
+using Petshop.Core.Entity2;
 
 namespace Petshop.InfraStructure.Data2
 {
@@ -85,6 +86,21 @@ namespace Petshop.InfraStructure.Data2
 
                 return null;
             }
+        }
+
+        public List<Pet> GetAllPets(Filter filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public FilteredList<Pet> GetAllFiltertPets(Filter filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Count()
+        {
+            throw new NotImplementedException();
         }
 
         public List<Pet> GetAllPets()

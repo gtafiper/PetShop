@@ -49,23 +49,42 @@ namespace Petshop.Inferstructur.Data.Reposetory
 
         }
 
-        public List<Pet> GetAllFiltertPets(Filter filter)
+        public FilteredList<Pet> GetAllFiltertPets(Filter filter)
         {
-            if (filter == null)
+            var filterdlist = new FilteredList<Pet>();
+            if(filter != null && filter.CurrentPage > 0 && filter.ItemsPrPage > 0)
             {
-                return _context.Pets.ToList();
+                filterdlist.List = _context.Pets
+                    .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage)
+                    .Take(filter.ItemsPrPage)
+                    .OrderBy(p => p.ID)
+                    .Include(o => o.PreviousOwners).ThenInclude(po => po.Owner)
+                    .ToList();
+                return filterdlist;
             }
 
-            return _context.Pets
-                .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage).Take(filter.ItemsPrPage).ToList();
+            filterdlist.List = _context.Pets.Include(o => o.PreviousOwners).ThenInclude(po => po.Owner);
+            return filterdlist;
         }
 
         public Pet UpdatePet(Pet petToUpdate)
         {
-            _context.Attach(petToUpdate).State = EntityState.Modified;
-
+            if (petToUpdate != null)
+            {
+                _context.Attach(petToUpdate).State = EntityState.Modified;
+                
+            }
+            var petOwners = new List<PetOwner>(petToUpdate.PreviousOwners ?? new List<PetOwner>());
+            _context.PetOwners.RemoveRange(
+                _context.PetOwners.Where(p => p.id == petToUpdate.ID)
+            );
+            foreach (var po in petOwners)
+            {
+                _context.Entry(po).State = EntityState.Added;
+            }
             _context.SaveChanges();
             return petToUpdate;
+            
         }
 
         public Pet DeletePet(int id)

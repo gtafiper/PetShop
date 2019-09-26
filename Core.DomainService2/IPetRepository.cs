@@ -12,7 +12,7 @@ namespace Core.DomainService2
 
         List<Pet> GetAllPets(Filter filter = null);
 
-        List<Pet> GetAllFiltertPets(Filter filter);
+        FilteredList<Pet> GetAllFiltertPets(Filter filter);
 
         int Count();
 

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Petshop.Core.Entity;
 using Petshop.Core.Entity2;
-using Petshop.Inferstructur.SQL.Reposetory;
+using Petshop.Inferstructur.Data.Reposetory;
+
 
 namespace ApplicationService2
 {
@@ -36,7 +37,7 @@ namespace ApplicationService2
 
         IEnumerable<PetOwner> GetOwners(Pet pet);
 
-        List<Pet> GetAllFiltertPets(Filter filter);
+        FilteredList<Pet> GetAllFiltertPets(Filter filter);
 
 
    }
